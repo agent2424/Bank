@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+class deposit{
+    public:
+    int d;
+    void depositinput(){
+    cout<<"enter amount to be deposited\n";
+    cin>>d;
+    }
+};
+class withdraw{
+    public:
+    int w;
+    void withdrawinput(){
+    cout<<"enter the amount for withdrawal\n";
+    cin>>w;
+    }
+};
+class details{
+    public:
+    string name;
+    int accno;
+    void displaydetail(){
+    cout<<"NAME= "<<name<<endl;
+    cout<<"ACCOUNT NUMBER= "<<accno<<endl;
+    }
+    void detail(){
+        cout<<"enter your name"<<endl;
+        cin>>name;
+        cout<<"enter your account number\n";
+        cin>>accno;
+
+    }
+};
+
+int main(){
+int balance=0;
+int withamt=0;
+deposit objd;
+withdraw objw;
+details objde;
+objde.detail();
+objd.depositinput();
+cout<<"do u want to withdraw(yes/no)\n";
+string action;
+cin>>action;
+if(action=="yes"){
+  objw.withdrawinput(); 
+  withamt=withamt+objw.w;
+}
+balance=balance+objd.d-withamt;
+objde.displaydetail();
+cout<<"deposited amount= "<<objd.d<<" rupees"<<endl;
+cout<<"withdrawal amount= "<<withamt<<" rupees"<<endl;
+cout<<"balance= "<<balance<<" rupees"<<endl;
+return 0;
+}
